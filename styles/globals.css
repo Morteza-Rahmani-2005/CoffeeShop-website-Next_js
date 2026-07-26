@@ -279,6 +279,7 @@ html {
 .btn-primary {
   background-color: #da9f5b !important;
   border: none !important;
+  text-decoration: none;
 }
 
 .btn-secondary {
@@ -310,4 +311,65 @@ html {
 .container-get-in-touch p svg {
   width: 18px;
   height: 18px;
+}
+
+.navbar svg {
+  width: 35px;
+  height: 35px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.drop-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.drop-cart>div {
+  position: absolute;
+  background-color: #fff;
+  transform: translateY(40px);
+  width: 300px;
+  right: 10px;
+  opacity: 0;
+  transition: all ease-in-out 300ms;
+  visibility: hidden;
+  border-radius: 8px;
+}
+
+.drop-cart>div img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.drop-cart:hover>div {
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.drop-cart .price-product {
+  color: #da9f5b;
+  font-size: 0.8rem;
+}
+
+.number-products {
+  position: relative;
+}
+
+.number-products span {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  color: white;
+  background-color: #da9f5b;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  border-radius: 50%;
+  font-size: 0.9rem;
 }

@@ -1,0 +1,46 @@
+{
+    "products":[
+        {
+    "category": "Hot Coffee",
+    "title": "Black Coffee",
+    "price": 5,
+    "image": "/img/menu-1.jpg",
+    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
+  },
+  {
+    "category": "Hot Coffee",
+    "title": "Chocolete Coffee",
+    "price": 7,
+    "image": "/img/menu-2.jpg",
+    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
+  },
+  {
+    "category": "Hot Coffee",
+    "title": "Coffee With Milk",
+    "price": 9,
+    "image": "/img/menu-3.jpg",
+    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
+  },
+  {
+    "category": "Cold Coffee",
+    "title": "Black Coffee",
+    "price": 5,
+    "image": "/img/menu-1.jpg",
+    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
+  },
+  {
+    "category": "Cold Coffee",
+    "title": "Chocolete Coffee",
+    "price": 7,
+    "image": "/img/menu-2.jpg",
+    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
+  },
+  {
+    "category": "Cold Coffee",
+    "title": "Coffee With Milk",
+    "price": 9,
+    "image": "/img/menu-3.jpg",
+    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
+  }
+    ]
+}

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { BiUserCircle } from 'react-icons/bi'
 
 export default function HeaderPages({ namePage }) {
     return (
@@ -19,6 +20,9 @@ export default function HeaderPages({ namePage }) {
                     </p>
                     <p className="m-0 text-white px-2">/</p>
                     <p className="m-0 text-white">{namePage}</p>
+                </div>
+                <div>
+                    <BiUserCircle />
                 </div>
             </div>
         </div>
