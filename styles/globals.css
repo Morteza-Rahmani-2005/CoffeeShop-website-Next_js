@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic&display=swap");
 
 body,
 html {
@@ -71,7 +70,6 @@ html {
 }
 
 @media (max-width: 991.98px) {
-
   .container-fluid.nav-bar,
   .nav-bar.container-sm,
   .nav-bar.container-md,
@@ -215,7 +213,9 @@ html {
   background-size: cover;
 }
 
-
+.reservation {
+  max-width: 700px;
+}
 
 .dropdown div {
   background-color: wheat;
@@ -250,14 +250,13 @@ html {
   justify-content: center;
 }
 
-
-.sectrion-clients .swiper-slide .testimonial-item>div {
+.sectrion-clients .swiper-slide .testimonial-item > div {
   width: 350px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 }
 
-.sectrion-clients .swiper-slide .testimonial-item>div img {
+.sectrion-clients .swiper-slide .testimonial-item > div img {
   border-radius: 12px 0px 0px 0px;
 }
 
@@ -267,8 +266,6 @@ html {
   width: 20px !important;
   height: 20px !important;
 }
-
-
 
 .btn-scroll-top svg {
   color: #da9f5b;
@@ -327,7 +324,7 @@ html {
   flex-direction: column;
 }
 
-.drop-cart>div {
+.drop-cart > div {
   position: absolute;
   background-color: #fff;
   transform: translateY(40px);
@@ -339,16 +336,15 @@ html {
   border-radius: 8px;
 }
 
-.drop-cart>div img {
+.drop-cart > div img {
   width: 80px;
   height: 80px;
   border-radius: 8px;
 }
 
-.drop-cart:hover>div {
+.drop-cart:hover > div {
   opacity: 1;
   visibility: visible;
-
 }
 
 .drop-cart .price-product {
