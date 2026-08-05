@@ -5,6 +5,10 @@ html {
   font-family: "Playwrite NZ Basic", cursive !important;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .carousel-caption {
   left: 0 !important;
   bottom: -16px !important;
@@ -211,10 +215,6 @@ html {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.reservation {
-  max-width: 700px;
 }
 
 .dropdown div {

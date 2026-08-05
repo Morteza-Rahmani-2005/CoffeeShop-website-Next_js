@@ -1,46 +1,111 @@
 {
-    "products":[
-        {
-    "category": "Hot Coffee",
-    "title": "Black Coffee",
-    "price": 5,
-    "image": "/img/menu-1.jpg",
-    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
-  },
-  {
-    "category": "Hot Coffee",
-    "title": "Chocolete Coffee",
-    "price": 7,
-    "image": "/img/menu-2.jpg",
-    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
-  },
-  {
-    "category": "Hot Coffee",
-    "title": "Coffee With Milk",
-    "price": 9,
-    "image": "/img/menu-3.jpg",
-    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
-  },
-  {
-    "category": "Cold Coffee",
-    "title": "Black Coffee",
-    "price": 5,
-    "image": "/img/menu-1.jpg",
-    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
-  },
-  {
-    "category": "Cold Coffee",
-    "title": "Chocolete Coffee",
-    "price": 7,
-    "image": "/img/menu-2.jpg",
-    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
-  },
-  {
-    "category": "Cold Coffee",
-    "title": "Coffee With Milk",
-    "price": 9,
-    "image": "/img/menu-3.jpg",
-    "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor"
-  }
-    ]
+  "products": [
+    {
+      "id": "a3f8c2e1-7b4d-4a9e-8f12-6c5d3e2a1b09",
+      "category": "Hot Coffee",
+      "title": "Black Coffee",
+      "price": 5,
+      "image": "/img/menu-1.jpg",
+      "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
+      "size": ["Small", "Medium", "Large"],
+      "isAvailable": true,
+      "rating": 4.5,
+      "likes": 128,
+      "tags": ["hot", "classic", "espresso", "sugar-free"],
+      "ingredients": ["Arabica coffee beans", "filtered water"],
+      "calories": 5,
+      "prepTime": 3
+    },
+    {
+      "id": "b7e2d9a4-1c6f-5e8b-9a3d-2f1e0d8c7b6a",
+      "category": "Hot Coffee",
+      "title": "Chocolete Coffee",
+      "price": 7,
+      "image": "/img/menu-2.jpg",
+      "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
+      "size": ["Small", "Medium", "Large"],
+      "isAvailable": true,
+      "rating": 4.7,
+      "likes": 214,
+      "tags": ["hot", "chocolate", "sweet", "comfort"],
+      "ingredients": [
+        "espresso",
+        "steamed milk",
+        "cocoa powder",
+        "chocolate syrup"
+      ],
+      "calories": 180,
+      "prepTime": 5
+    },
+    {
+      "id": "c1a5f3b8-9d2e-4c7a-6b5f-3e2d1c0a9b8f",
+      "category": "Hot Coffee",
+      "title": "Coffee With Milk",
+      "price": 9,
+      "image": "/img/menu-3.jpg",
+      "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
+      "size": ["Small", "Medium", "Large"],
+      "isAvailable": true,
+      "rating": 4.6,
+      "likes": 189,
+      "tags": ["hot", "milk", "creamy", "latte"],
+      "ingredients": ["espresso", "whole milk", "microfoam"],
+      "calories": 120,
+      "prepTime": 4
+    },
+    {
+      "id": "d4b9e6c2-8a1f-5d3c-7e9b-4c3a2b1f0e8d",
+      "category": "Cold Coffee",
+      "title": "Black Coffee",
+      "price": 5,
+      "image": "/img/menu-1.jpg",
+      "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
+      "size": ["Small", "Medium", "Large"],
+      "isAvailable": true,
+      "rating": 4.4,
+      "likes": 96,
+      "tags": ["cold", "iced", "classic", "refreshing"],
+      "ingredients": ["cold brew concentrate", "ice", "filtered water"],
+      "calories": 10,
+      "prepTime": 2
+    },
+    {
+      "id": "e8c3a7d1-6b5e-4f2a-8d7c-5b4a3f2e1d0c",
+      "category": "Cold Coffee",
+      "title": "Chocolete Coffee",
+      "price": 7,
+      "image": "/img/menu-2.jpg",
+      "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
+      "size": ["Small", "Medium", "Large"],
+      "isAvailable": true,
+      "rating": 4.8,
+      "likes": 267,
+      "tags": ["cold", "iced", "chocolate", "sweet"],
+      "ingredients": [
+        "cold brew",
+        "milk",
+        "chocolate syrup",
+        "ice",
+        "whipped cream"
+      ],
+      "calories": 220,
+      "prepTime": 4
+    },
+    {
+      "id": "f2d6b4e9-3c8a-5b1f-9e6d-7a5c4b3f2e1a",
+      "category": "Cold Coffee",
+      "title": "Coffee With Milk",
+      "price": 9,
+      "image": "/img/menu-3.jpg",
+      "description": "Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor",
+      "size": ["Small", "Medium", "Large"],
+      "isAvailable": true,
+      "rating": 4.5,
+      "likes": 152,
+      "tags": ["cold", "iced", "milk", "latte"],
+      "ingredients": ["espresso", "cold milk", "ice"],
+      "calories": 140,
+      "prepTime": 3
+    }
+  ]
 }
