@@ -1,12 +1,12 @@
 import HeaderPages from "@/components/layout/headerPages/HeaderPages";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function index() {
   const [userName, setUserName] = useState("");
   const [userNameId, setUserNameId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   async function handlerFormLogin(e) {
     e.preventDefault();
     const dataForm = {
@@ -23,6 +23,14 @@ function index() {
         },
         body: JSON.stringify(dataForm),
       });
+
+      if (res.status == 406) {
+        toast.error("Email and username have already been used.");
+      }
+
+      if (res.status == 201) {
+        toast.success("Your registration was successful.");
+      }
     } catch (err) {
       console.log(err);
     }

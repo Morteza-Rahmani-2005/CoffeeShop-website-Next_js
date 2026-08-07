@@ -4,7 +4,9 @@ export default async function handler(req, res) {
   connectToDB();
   switch (req.method) {
     case "GET": {
-      res.json({ message: "get user" });
+      const users = await usersModel.find();
+
+      res.json({ message: "Users successfully displayed.", data: users });
       break;
     }
     case "POST": {
@@ -17,7 +19,6 @@ export default async function handler(req, res) {
         res
           .status(406)
           .json({ message: "Email and password have already been used." });
-        console.log("Email and password have already been used.");
       } else {
         const user = await usersModel.create({
           userName,
