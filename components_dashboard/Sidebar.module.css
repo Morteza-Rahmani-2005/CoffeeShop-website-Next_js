@@ -1,0 +1,142 @@
+.sidebar {
+  width: 272px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--cad-bg-elevated), var(--cad-bg) 70%);
+  border-right: 1px solid var(--cad-border-soft);
+  padding: 1.5rem 1.15rem;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.35rem 0.4rem 1.4rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--cad-border-soft);
+}
+.brandMark {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: radial-gradient(circle at 32% 28%, var(--cad-accent-strong), var(--cad-accent) 55%, #a86f36 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px -6px rgba(217, 160, 91, 0.55);
+}
+.brandMark i {
+  color: #241407;
+  font-size: 1.25rem;
+}
+.brandTitle {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  line-height: 1.15;
+  color: var(--cad-text);
+}
+.brandSub {
+  font-size: 0.72rem;
+  color: var(--cad-text-faint);
+}
+
+.navLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--cad-text-faint);
+  text-transform: uppercase;
+  padding: 0 0.6rem;
+  margin: 1.1rem 0 0.5rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.62rem 0.75rem;
+  border-radius: 10px;
+  color: var(--cad-text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.link i {
+  font-size: 1.05rem;
+  width: 20px;
+  text-align: center;
+  color: var(--cad-text-faint);
+}
+.link:hover {
+  background: var(--cad-surface-2);
+  color: var(--cad-text);
+}
+.link.active {
+  background: var(--cad-accent-soft);
+  color: var(--cad-accent-strong);
+}
+.link.active i {
+  color: var(--cad-accent-strong);
+}
+
+.user {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--cad-border-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-inline: 0.6rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+.user:hover {
+  background: var(--cad-surface-2);
+}
+.userActive {
+  background: var(--cad-accent-soft);
+}
+.userActive .avatar {
+  border-color: var(--cad-accent);
+  color: var(--cad-accent-strong);
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--cad-surface-2);
+  border: 1.5px solid var(--cad-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--cad-accent-strong);
+  flex-shrink: 0;
+}
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+.userName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.userRole {
+  color: var(--cad-text-faint);
+  font-size: 0.72rem;
+}
+.userEdit {
+  color: var(--cad-text-faint);
+  font-size: 0.85rem;
+}

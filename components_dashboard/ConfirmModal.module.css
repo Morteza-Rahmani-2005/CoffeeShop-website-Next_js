@@ -1,0 +1,52 @@
+.content {
+  background: var(--cad-bg-elevated);
+  border: 1px solid var(--cad-border-soft);
+  border-radius: var(--cad-radius-lg);
+  color: var(--cad-text);
+}
+
+.header {
+  border-bottom: 1px solid var(--cad-border-soft);
+}
+
+.title {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.body {
+  color: var(--cad-text-muted);
+  font-size: 0.9rem;
+}
+
+.footer {
+  border-top: 1px solid var(--cad-border-soft);
+}
+
+.cancelBtn {
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-color: var(--cad-border-soft);
+  background: var(--cad-surface);
+  color: var(--cad-text);
+}
+.cancelBtn:hover {
+  background: var(--cad-surface-2);
+  color: var(--cad-text);
+  border-color: var(--cad-border-soft);
+}
+
+.confirmBtn {
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  background: var(--cad-warn);
+  border-color: var(--cad-warn);
+}
+.confirmBtn:hover {
+  filter: brightness(1.08);
+  background: var(--cad-warn);
+  border-color: var(--cad-warn);
+}

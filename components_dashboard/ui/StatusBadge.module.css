@@ -1,0 +1,37 @@
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.clickable {
+  cursor: pointer;
+}
+
+.positive {
+  color: var(--cad-accent-2);
+  background: var(--cad-accent-2-soft);
+}
+.accent {
+  color: var(--cad-accent-strong);
+  background: var(--cad-accent-soft);
+}
+.info {
+  color: var(--cad-info);
+  background: var(--cad-info-soft);
+}
+.negative {
+  color: var(--cad-warn);
+  background: var(--cad-warn-soft);
+}

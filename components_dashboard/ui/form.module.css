@@ -1,0 +1,82 @@
+.row {
+  margin-bottom: 1rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 575.98px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cad-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.control {
+  background: var(--cad-surface-2);
+  border: 1px solid var(--cad-border-soft);
+  color: var(--cad-text);
+  border-radius: 11px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.89rem;
+}
+.control:focus {
+  background: var(--cad-surface-2);
+  border-color: var(--cad-accent);
+  color: var(--cad-text);
+  box-shadow: 0 0 0 2px var(--cad-accent-soft);
+}
+.control::placeholder {
+  color: var(--cad-text-faint);
+}
+.control:disabled {
+  opacity: 0.6;
+}
+
+.hint {
+  font-size: 0.76rem;
+  color: var(--cad-text-faint);
+  margin-top: 0.35rem;
+}
+
+.error {
+  font-size: 0.76rem;
+  color: var(--cad-warn);
+  margin-top: 0.35rem;
+}
+
+.iconPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.iconOption {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  border: 1px solid var(--cad-border-soft);
+  background: var(--cad-surface-2);
+  color: var(--cad-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.iconOptionSelected {
+  border-color: var(--cad-accent);
+  color: var(--cad-accent-strong);
+  background: var(--cad-accent-soft);
+}
+
+.switchLabel {
+  color: var(--cad-text-muted);
+  font-size: 0.85rem;
+}

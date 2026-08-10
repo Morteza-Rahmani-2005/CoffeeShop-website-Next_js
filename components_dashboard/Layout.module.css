@@ -1,0 +1,59 @@
+.shell {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.desktopSidebar {
+  display: none;
+  flex-shrink: 0;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  .desktopSidebar {
+    display: block;
+  }
+}
+
+.offcanvas {
+  background: var(--cad-bg-elevated) !important;
+  border-right: 1px solid var(--cad-border-soft) !important;
+  width: 280px !important;
+  color: var(--cad-text);
+}
+@media (min-width: 992px) {
+  .offcanvas {
+    display: none !important;
+  }
+}
+
+.offcanvasBody {
+  padding: 0;
+}
+.offcanvasBody > * {
+  height: 100%;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.75rem 1.75rem 3rem;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media (max-width: 575.98px) {
+  .content {
+    padding: 1.1rem 1rem 2.5rem;
+  }
+}

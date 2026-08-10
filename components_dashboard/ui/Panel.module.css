@@ -1,0 +1,14 @@
+.panel {
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  border-radius: var(--cad-radius-lg);
+  box-shadow: var(--cad-shadow-card);
+}
+.padded {
+  padding: 1.25rem 1.5rem;
+}
+@media (max-width: 575.98px) {
+  .padded {
+    padding: 1rem;
+  }
+}

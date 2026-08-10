@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.wrapper :global(.form-check-input) {
+  width: 2.4em;
+  height: 1.4em;
+  cursor: pointer;
+  background-color: var(--cad-surface-2);
+  border-color: var(--cad-border-soft);
+}
+.wrapper :global(.form-check-input:checked) {
+  background-color: var(--cad-accent-2);
+  border-color: var(--cad-accent-2);
+}
+.wrapper :global(.form-check-input:focus) {
+  border-color: var(--cad-accent);
+  box-shadow: 0 0 0 2px var(--cad-accent-soft);
+}
+.wrapper :global(.form-check-label) {
+  color: var(--cad-text-muted);
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}

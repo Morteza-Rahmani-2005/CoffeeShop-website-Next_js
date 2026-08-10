@@ -1,0 +1,90 @@
+.profileLink {
+  color: var(--cad-accent);
+}
+
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--cad-surface-2);
+  border: 1.5px solid var(--cad-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--cad-accent-strong);
+  flex-shrink: 0;
+}
+.name {
+  font-weight: 600;
+}
+.youTag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: var(--cad-accent-soft);
+  color: var(--cad-accent-strong);
+}
+
+.muted {
+  color: var(--cad-text-muted);
+}
+.faint {
+  color: var(--cad-text-faint);
+}
+.mono {
+  font-family: var(--cad-font-mono);
+}
+
+.rolePill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: var(--cad-surface-2);
+  color: var(--cad-text-muted);
+  border: 1px solid var(--cad-border-soft);
+}
+
+.actions {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: flex-end;
+}
+.actionIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cad-text-faint);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.actionIcon:hover {
+  background: var(--cad-surface-2);
+  color: var(--cad-text);
+  border-color: var(--cad-border-soft);
+}
+.actionIcon.danger:hover {
+  color: var(--cad-warn);
+}
+.actionIcon:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.empty {
+  text-align: center;
+  color: var(--cad-text-faint);
+  padding: 2rem 0;
+}

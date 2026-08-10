@@ -1,0 +1,113 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  border-radius: var(--cad-radius-md);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--cad-accent);
+}
+.cardArt {
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  position: relative;
+  background: linear-gradient(160deg, var(--cad-surface-2), var(--cad-surface));
+  color: var(--cad-accent-strong);
+}
+.unavailableTag {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: var(--cad-warn-soft);
+  color: var(--cad-warn);
+}
+.cardBody {
+  padding: 1rem 1.1rem 1.15rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cardName {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.cardDesc {
+  color: var(--cad-text-faint);
+  font-size: 0.76rem;
+  min-height: 2.2em;
+  margin: 0.2rem 0 0.6rem;
+}
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: var(--cad-surface-2);
+  color: var(--cad-text-muted);
+  border: 1px solid var(--cad-border-soft);
+}
+.price {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  color: var(--cad-accent-strong);
+}
+.cardActions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--cad-border-soft);
+}
+.actionIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cad-text-faint);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.actionIcon:hover {
+  background: var(--cad-surface-2);
+  color: var(--cad-text);
+  border-color: var(--cad-border-soft);
+}
+.actionIcon.danger:hover {
+  color: var(--cad-warn);
+}
+
+.emptyPanel {
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  border-radius: var(--cad-radius-lg);
+  padding: 3rem;
+  text-align: center;
+  color: var(--cad-text-faint);
+}

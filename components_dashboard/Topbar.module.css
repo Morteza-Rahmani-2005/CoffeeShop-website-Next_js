@@ -1,0 +1,145 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.75rem;
+  background: color-mix(in srgb, var(--cad-bg) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cad-border-soft);
+  flex-shrink: 0;
+}
+@media (max-width: 575.98px) {
+  .topbar {
+    padding: 0.85rem 1rem;
+  }
+}
+
+.menuBtn {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .menuBtn {
+    display: inline-flex;
+  }
+}
+
+.titleBlock {
+  display: none;
+}
+@media (min-width: 768px) {
+  .titleBlock {
+    display: block;
+  }
+}
+.title {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.subtitle {
+  color: var(--cad-text-faint);
+  font-size: 0.8rem;
+}
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  color: var(--cad-text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.iconBtn:hover {
+  color: var(--cad-text);
+  background: var(--cad-surface-2);
+}
+
+.search {
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  border-radius: 13px;
+  padding: 0.55rem 1rem;
+  display: none;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1;
+  max-width: 380px;
+  color: var(--cad-text-faint);
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .search {
+    display: flex;
+  }
+}
+.search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--cad-text);
+  font-size: 0.88rem;
+  width: 100%;
+}
+.search input::placeholder {
+  color: var(--cad-text-faint);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .right {
+    margin-left: 0;
+  }
+}
+
+.notif {
+  position: relative;
+}
+.notifDot {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cad-warn);
+  border: 2px solid var(--cad-bg);
+}
+
+.searchBtnMobile {
+  display: inline-flex;
+}
+@media (min-width: 576px) {
+  .searchBtnMobile {
+    display: none;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cad-surface-2);
+  border: 1.5px solid var(--cad-border);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--cad-accent-strong);
+  flex-shrink: 0;
+}
+@media (min-width: 576px) {
+  .avatar {
+    display: flex;
+  }
+}

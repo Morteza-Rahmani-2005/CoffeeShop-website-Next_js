@@ -1,0 +1,84 @@
+.brew {
+  background: linear-gradient(180deg, var(--cad-accent-strong), var(--cad-accent));
+  border: none;
+  color: #241407;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+}
+.brew:hover,
+.brew:focus,
+.brew:active {
+  filter: brightness(1.06);
+  background: linear-gradient(180deg, var(--cad-accent-strong), var(--cad-accent)) !important;
+  color: #241407 !important;
+  border: none !important;
+}
+.brew:disabled {
+  opacity: 0.55;
+}
+
+.ghost {
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  color: var(--cad-text);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.55rem 1.05rem;
+  display: inline-flex;
+  align-items: center;
+}
+.ghost:hover,
+.ghost:focus,
+.ghost:active {
+  background: var(--cad-surface-2) !important;
+  color: var(--cad-text) !important;
+  border-color: var(--cad-border-soft) !important;
+}
+.ghost:disabled {
+  opacity: 0.55;
+}
+
+.danger {
+  background: var(--cad-warn);
+  border: none;
+  color: #2a0f09;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.88rem;
+}
+.danger:hover,
+.danger:focus,
+.danger:active {
+  filter: brightness(1.08);
+  background: var(--cad-warn) !important;
+  border: none !important;
+}
+
+.chip {
+  background: var(--cad-surface);
+  border: 1px solid var(--cad-border-soft);
+  color: var(--cad-text);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.chip:hover {
+  background: var(--cad-surface-2) !important;
+  color: var(--cad-text) !important;
+  border-color: var(--cad-border-soft) !important;
+}
+.chip.active {
+  background: var(--cad-accent-soft) !important;
+  border-color: var(--cad-accent) !important;
+  color: var(--cad-accent-strong) !important;
+}

@@ -1,0 +1,17 @@
+.select {
+  border: 1px solid var(--cad-border-soft);
+  background-color: var(--cad-surface-2);
+  color: var(--cad-text);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.28rem 1.9rem 0.28rem 0.75rem;
+  width: auto;
+  display: inline-block;
+}
+.select:focus {
+  border-color: var(--cad-accent);
+  box-shadow: 0 0 0 2px var(--cad-accent-soft);
+  background-color: var(--cad-surface-2);
+  color: var(--cad-text);
+}

@@ -9,6 +9,82 @@ a {
   text-decoration: none !important;
 }
 
+:root {
+  --cad-bg: #16100c;
+  --cad-bg-elevated: #1c1510;
+  --cad-surface: #221a14;
+  --cad-surface-2: #2c2119;
+  --cad-surface-hover: #33271d;
+  --cad-border: #3a2c21;
+  --cad-border-soft: #2a2019;
+
+  --cad-text: #f3e8da;
+  --cad-text-muted: #b6a190;
+  --cad-text-faint: #8a7768;
+
+  --cad-accent: #d9a05b;
+  --cad-accent-strong: #e8b877;
+  --cad-accent-soft: rgba(217, 160, 91, 0.14);
+  --cad-accent-2: #8ca06b;
+  --cad-accent-2-soft: rgba(140, 160, 107, 0.15);
+  --cad-warn: #e07159;
+  --cad-warn-soft: rgba(224, 113, 89, 0.16);
+  --cad-info: #7a9bb0;
+  --cad-info-soft: rgba(122, 155, 176, 0.15);
+
+  --cad-radius-sm: 10px;
+  --cad-radius-md: 16px;
+  --cad-radius-lg: 22px;
+
+  --cad-shadow-card: 0 10px 30px -14px rgba(0, 0, 0, 0.55);
+  --cad-font-display: "Fraunces", serif;
+  --cad-font-body: "Manrope", sans-serif;
+  --cad-font-mono: "JetBrains Mono", monospace;
+}
+
+.cad-root {
+  background: var(--cad-bg);
+  color: var(--cad-text);
+  font-family: "Playwrite NZ Basic", cursive !important;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 12% -10%, rgba(217, 160, 91, 0.1), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(140, 160, 107, 0.07), transparent 38%);
+}
+
+.cad-root h1,
+.cad-root h2,
+.cad-root h3,
+.cad-root h4,
+.cad-root h5,
+.cad-root h6 {
+  font-family: "Playwrite NZ Basic", cursive !important;
+  color: var(--cad-text);
+  letter-spacing: -0.01em;
+}
+
+.cad-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cad-root ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.cad-root ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cad-root ::-webkit-scrollbar-thumb {
+  background: var(--cad-surface-2);
+  border-radius: 10px;
+  border: 2px solid var(--cad-bg);
+}
+
+
 .carousel-caption {
   left: 0 !important;
   bottom: -16px !important;
@@ -74,6 +150,7 @@ a {
 }
 
 @media (max-width: 991.98px) {
+
   .container-fluid.nav-bar,
   .nav-bar.container-sm,
   .nav-bar.container-md,
@@ -116,6 +193,7 @@ a {
   bottom: -1px;
   background: url(/img/overlay-bottom.png);
 }
+
 .carousel-caption {
   top: 0;
   left: 0;
@@ -250,13 +328,13 @@ a {
   justify-content: center;
 }
 
-.sectrion-clients .swiper-slide .testimonial-item > div {
+.sectrion-clients .swiper-slide .testimonial-item>div {
   width: 350px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 }
 
-.sectrion-clients .swiper-slide .testimonial-item > div img {
+.sectrion-clients .swiper-slide .testimonial-item>div img {
   border-radius: 12px 0px 0px 0px;
 }
 
@@ -324,7 +402,7 @@ a {
   flex-direction: column;
 }
 
-.drop-cart > div {
+.drop-cart>div {
   position: absolute;
   background-color: #fff;
   transform: translateY(40px);
@@ -336,13 +414,13 @@ a {
   border-radius: 8px;
 }
 
-.drop-cart > div img {
+.drop-cart>div img {
   width: 80px;
   height: 80px;
   border-radius: 8px;
 }
 
-.drop-cart:hover > div {
+.drop-cart:hover>div {
   opacity: 1;
   visibility: visible;
 }
@@ -377,10 +455,12 @@ a {
   justify-content: center;
   gap: 1rem;
 }
+
 .login-Management h1 {
   font-size: 1.4rem;
   font-weight: bold;
 }
+
 .login-Management input::placeholder {
   color: black;
 }

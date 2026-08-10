@@ -1,0 +1,38 @@
+.spaced {
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
+}
+
+.previewHint {
+  color: var(--cad-text-faint);
+  font-size: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.previewBox {
+  background: var(--cad-surface-2);
+  border-radius: var(--cad-radius-md);
+  padding: 1.25rem;
+  border: 1px solid var(--cad-border-soft);
+}
+.previewTitle {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+.previewSub {
+  color: var(--cad-text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+.previewCta {
+  font-size: 0.8rem !important;
+  padding: 0.45rem 0.9rem !important;
+}

@@ -1,0 +1,77 @@
+.header {
+  margin-bottom: 1.5rem;
+}
+.title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.subtitle {
+  color: var(--cad-text-muted);
+  margin-bottom: 0;
+}
+
+.loading {
+  color: var(--cad-text-faint);
+}
+
+.cardPanel {
+  text-align: center;
+}
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--cad-surface-2);
+  border: 1.5px solid var(--cad-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--cad-accent-strong);
+  margin: 0 auto 0.9rem;
+}
+.name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.email {
+  color: var(--cad-text-faint);
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+.rolePill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: var(--cad-surface-2);
+  color: var(--cad-text-muted);
+  border: 1px solid var(--cad-border-soft);
+}
+.addedAt {
+  color: var(--cad-text-faint);
+  font-size: 0.78rem;
+  margin: 0.9rem 0 0;
+}
+.mono {
+  font-family: var(--cad-font-mono);
+}
+
+.spaced {
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--cad-font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
