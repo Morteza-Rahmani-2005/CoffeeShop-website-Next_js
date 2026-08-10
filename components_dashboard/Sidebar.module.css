@@ -1,7 +1,11 @@
 .sidebar {
   width: 272px;
   flex-shrink: 0;
-  background: linear-gradient(180deg, var(--cad-bg-elevated), var(--cad-bg) 70%);
+  background: linear-gradient(
+    180deg,
+    var(--cad-bg-elevated),
+    var(--cad-bg) 70%
+  );
   border-right: 1px solid var(--cad-border-soft);
   padding: 1.5rem 1.15rem;
   height: 100%;
@@ -22,19 +26,25 @@
   width: 42px;
   height: 42px;
   border-radius: 13px;
-  background: radial-gradient(circle at 32% 28%, var(--cad-accent-strong), var(--cad-accent) 55%, #a86f36 100%);
+  background: radial-gradient(
+    circle at 32% 28%,
+    var(--cad-accent-strong),
+    var(--cad-accent) 55%,
+    #a86f36 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 6px 16px -6px rgba(217, 160, 91, 0.55);
 }
-.brandMark i {
+.brandMark svg {
   color: #241407;
-  font-size: 1.25rem;
+  width: 22px;
+  height: 22px;
 }
 .brandTitle {
-  font-family: var(--cad-font-display);
+  font-family: "Playwrite NZ Basic", cursive !important;
   font-weight: 700;
   font-size: 1.02rem;
   line-height: 1.15;
@@ -64,11 +74,13 @@
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
-.link i {
-  font-size: 1.05rem;
-  width: 20px;
+.link svg {
+  width: 22px;
+  height: 22px;
   text-align: center;
   color: var(--cad-text-faint);
 }
@@ -80,7 +92,7 @@
   background: var(--cad-accent-soft);
   color: var(--cad-accent-strong);
 }
-.link.active i {
+.link.active svg {
   color: var(--cad-accent-strong);
 }
 

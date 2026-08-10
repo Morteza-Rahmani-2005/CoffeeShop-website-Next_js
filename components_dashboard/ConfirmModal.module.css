@@ -10,7 +10,7 @@
 }
 
 .title {
-  font-family: var(--cad-font-display);
+  font-family: "Playwrite NZ Basic", cursive !important;
   font-weight: 700;
   font-size: 1.05rem;
 }

@@ -17,6 +17,10 @@
 .menuBtn {
   display: none;
 }
+.menuBtn svg {
+  width: 22px;
+  height: 22px;
+}
 @media (max-width: 991.98px) {
   .menuBtn {
     display: inline-flex;
@@ -32,7 +36,7 @@
   }
 }
 .title {
-  font-family: var(--cad-font-display);
+  font-family: "Playwrite NZ Basic", cursive !important;
   font-weight: 700;
   font-size: 1.05rem;
 }
@@ -71,6 +75,10 @@
   max-width: 380px;
   color: var(--cad-text-faint);
   margin-left: auto;
+}
+.search svg {
+  width: 22px;
+  height: 22px;
 }
 @media (min-width: 576px) {
   .search {

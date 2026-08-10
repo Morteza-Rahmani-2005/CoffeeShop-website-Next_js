@@ -29,7 +29,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--cad-font-display);
+  font-family: "Playwrite NZ Basic", cursive !important;
   font-weight: 700;
   font-size: 1.05rem;
 }
@@ -115,7 +115,11 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--cad-accent), var(--cad-accent-strong));
+  background: linear-gradient(
+    90deg,
+    var(--cad-accent),
+    var(--cad-accent-strong)
+  );
 }
 
 .gaugePanel {
@@ -143,7 +147,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-family: var(--cad-font-display);
+  font-family: "Playwrite NZ Basic", cursive !important;
   color: var(--cad-accent-strong);
   flex-shrink: 0;
   font-size: 0.85rem;

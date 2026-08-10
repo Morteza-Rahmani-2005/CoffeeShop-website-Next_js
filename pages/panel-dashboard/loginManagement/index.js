@@ -31,7 +31,7 @@ function index() {
       if (res.status == 401) {
         toast.error("The information entered is incorrect.");
       } else {
-        rout.push("/");
+        rout.push("/panel-dashboard/dashboard");
       }
     } catch (err) {
       console.log(err);
