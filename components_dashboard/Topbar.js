@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useCurrentAdmin } from "../lib/store";
 import styles from "./Topbar.module.css";
-import { BiMenu, BiSearch } from "react-icons/bi";
+import { BiBell, BiMenu, BiSearch } from "react-icons/bi";
 
 export default function Topbar({ title, subtitle, onOpenMenu }) {
   const admin = useCurrentAdmin();
@@ -42,7 +42,7 @@ export default function Topbar({ title, subtitle, onOpenMenu }) {
           type="button"
           aria-label="Notifications"
         >
-          <i className="bi bi-bell" />
+          <BiBell />
           <span className={styles.notifDot} />
         </button>
         <button

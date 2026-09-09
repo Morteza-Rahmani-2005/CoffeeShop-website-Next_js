@@ -17,6 +17,10 @@
   font-size: 1.05rem;
   margin-bottom: 0.85rem;
 }
+.icon svg {
+  width: 23px;
+  height: 23px;
+}
 .accent {
   background: var(--cad-accent-soft);
   color: var(--cad-accent-strong);
