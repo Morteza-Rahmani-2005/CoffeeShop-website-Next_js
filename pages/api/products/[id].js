@@ -2,28 +2,32 @@ import fs from "fs";
 import path from "path";
 import connectToDB from "@/utils/db";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   connectToDB();
   switch (req.method) {
-    case "GET": {
-      const dbPath = path.join(process.cwd(), "db", "db.json");
-      const data = fs.readFileSync(dbPath);
+    case "PUT": {
 
-      const parsedData = JSON.parse(data);
+      const { id } = req.query;
+      const { name, category, price, description, icon, available } = req.body;
 
-      const isProduct = parsedData.products.find(
-        (product) => product.id == req.query.id,
+      const updatedProduct = await productsModal.findOneAndUpdate(
+        { _id: id },
+        {
+          name,
+          category,
+          price,
+          description,
+          icon,
+          available,
+        },
+        { new: true }
       );
 
-      if (isProduct) {
-        res.status(202).json({
-          message: "Product details successfully found :))",
-          detailsProduct: isProduct,
-        });
+      if (updatedProduct) {
+        res.json({ message: "Product updated successfully", product: updatedProduct });
       } else {
-        res.json({ message: "No information found :((" });
+        res.json({ message: "There was a problem editing the product." });
       }
-
       break;
     }
   }

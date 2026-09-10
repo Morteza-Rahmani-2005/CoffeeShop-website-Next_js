@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useMemo, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import toast from "react-hot-toast";
 import ModalBs from "react-bootstrap/Modal";
@@ -8,19 +7,27 @@ import Layout from "@/components_dashboard/Layout";
 import Button from "@/components_dashboard/ui/Button";
 import PageHeader from "@/components_dashboard/ui/PageHeader";
 import SwitchField from "@/components_dashboard/ui/SwitchField";
-import { useStore } from "@/lib/store";
 import { useConfirm } from "@/lib/ConfirmContext";
 import modalStyles from "@/components_dashboard/ui/modalTheme.module.css";
 import formStyles from "@/components_dashboard/ui/form.module.css";
 import styles from "./products.module.css";
+import { CgCoffee } from "react-icons/cg";
+import { BiSolidCoffeeAlt, BiSolidDrink } from "react-icons/bi";
+import { BsBasket2Fill, BsCake2Fill, BsEggFried, BsFillTrash3Fill } from "react-icons/bs";
+import { FiEdit3 } from "react-icons/fi";
+import { useEffect, useMemo, useState } from "react";
+import { useStore } from "@/lib/store";
+
+
+
 
 const ICONS = [
-  "bi-cup-hot-fill",
-  "bi-cup-fill",
-  "bi-cup-straw",
-  "bi-cake2-fill",
-  "bi-egg-fried",
-  "bi-basket2-fill",
+  { name: "coffee", icon: <CgCoffee /> },
+  { name: "coffeeAlt", icon: <BiSolidCoffeeAlt /> },
+  { name: "drink", icon: <BiSolidDrink /> },
+  { name: "cake", icon: <BsCake2Fill /> },
+  { name: "egg", icon: <BsEggFried /> },
+  { name: "basket", icon: <BsBasket2Fill /> },
 ];
 const CATEGORIES = [
   "Hot Coffee",
@@ -34,18 +41,47 @@ const DEFAULT_VALUES = {
   category: CATEGORIES[0],
   price: "",
   description: "",
-  icon: ICONS[0],
+  icon: "coffee",
   available: true,
 };
 
-export default function index() {
-  const siteName = useStore((s) => s.content.siteName);
-  const products = useStore((s) => s.products);
-  const addProduct = useStore((s) => s.addProduct);
-  const updateProduct = useStore((s) => s.updateProduct);
-  const deleteProduct = useStore((s) => s.deleteProduct);
-  const confirm = useConfirm();
+export default function Index() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
 
+        const response = await fetch("/api/products");
+
+
+
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const data = await response.json();
+
+
+        setProducts(data.products);
+      } catch (error) {
+        console.error(error);
+        toast.error("Failed to load products.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+
+
+
+  const confirm = useConfirm();
+  const siteName = useStore((state) => state.content.siteName);
   const [activeCategory, setActiveCategory] = useState("All");
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -73,28 +109,80 @@ export default function index() {
   };
 
   const openEdit = (product) => {
-    setEditingId(product.id);
+    setEditingId(product._id);
     reset({
       name: product.name,
       category: product.category,
       price: String(product.price),
       description: product.description || "",
-      icon: product.icon || ICONS[0],
+      icon: product.icon || "coffee",
       available: !!product.available,
     });
     setModalOpen(true);
   };
 
-  const onSubmit = (data) => {
-    const payload = { ...data, price: parseFloat(data.price) || 0 };
-    if (editingId) {
-      updateProduct(editingId, payload);
-      toast.success(`"${data.name}" was updated.`);
-    } else {
-      addProduct(payload);
-      toast.success(`"${data.name}" was added to the menu.`);
+  const onSubmit = async (data) => {
+    const payload = {
+      ...data,
+      price: parseFloat(data.price) || 0,
+    };
+
+    console.log(payload)
+
+    try {
+      if (editingId) {
+        // UPDATE
+        const response = await fetch(`/api/products/${editingId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+
+        console.log(response)
+
+
+        if (!response.ok) {
+          throw new Error("Failed to update product");
+        }
+        const result = await response.json();
+
+        setProducts((prev) =>
+          prev.map((product) =>
+            product._id === editingId ? result.product : product
+          )
+        );
+
+        toast.success(`"${data.name}" was updated.`);
+      } else {
+        // CREATE
+        const response = await fetch("/api/products", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to create product");
+        }
+
+        const newProduct = await response.json();
+
+        setProducts((prev) => [newProduct, ...prev]);
+
+        toast.success(`"${data.name}" was added to the menu.`);
+      }
+
+      setModalOpen(false);
+      reset(DEFAULT_VALUES);
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong.");
     }
-    setModalOpen(false);
   };
 
   const handleDelete = async (product) => {
@@ -103,11 +191,29 @@ export default function index() {
       message: `Delete "${product.name}"? This can't be undone.`,
       confirmLabel: "Delete",
     });
-    if (ok) {
-      deleteProduct(product.id);
-      toast.error(`"${product.name}" was deleted.`);
+
+    if (!ok) return;
+
+    try {
+      const response = await fetch(`/api/products/${product._id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete product");
+      }
+
+      setProducts((prev) =>
+        prev.filter((item) => item._id !== product._id)
+      );
+
+      toast.success(`"${product.name}" was deleted.`);
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to delete product.");
     }
   };
+
 
   return (
     <>
@@ -139,13 +245,12 @@ export default function index() {
 
         <div className="row g-3">
           {visibleProducts.map((item) => (
-            <div className="col-6 col-md-4 col-xl-3" key={item.id}>
+            <div className="col-6 col-md-4 col-xl-3" key={item._id}>
               <div className={styles.card}>
                 <div className={styles.cardArt}>
-                  <i className={`bi ${item.icon}`} />
-                  {!item.available && (
-                    <span className={styles.unavailableTag}>Unavailable</span>
-                  )}
+                  {
+                    ICONS.find((i) => i.name === item.icon)?.icon
+                  }
                 </div>
                 <div className={styles.cardBody}>
                   <div className={styles.cardName}>{item.name}</div>
@@ -163,7 +268,7 @@ export default function index() {
                       title="Edit"
                       aria-label="Edit"
                     >
-                      <i className="bi bi-pencil" />
+                      <FiEdit3 />
                     </button>
                     <button
                       className={`${styles.actionIcon} ${styles.danger}`}
@@ -171,7 +276,7 @@ export default function index() {
                       title="Delete"
                       aria-label="Delete"
                     >
-                      <i className="bi bi-trash3" />
+                      <BsFillTrash3Fill />
                     </button>
                   </div>
                 </div>
@@ -272,14 +377,15 @@ export default function index() {
                   name="icon"
                   render={({ field }) => (
                     <div className={formStyles.iconPicker}>
-                      {ICONS.map((icon) => (
+                      {ICONS.map((item) => (
                         <button
                           type="button"
-                          key={icon}
-                          className={`${formStyles.iconOption} ${field.value === icon ? formStyles.iconOptionSelected : ""}`}
-                          onClick={() => field.onChange(icon)}
+                          key={item.name}
+                          className={`${formStyles.iconOption} ${field.value === item.name ? formStyles.iconOptionSelected : ""
+                            }`}
+                          onClick={() => field.onChange(item.name)}
                         >
-                          <i className={`bi ${icon}`} />
+                          {item.icon}
                         </button>
                       ))}
                     </div>
