@@ -1,12 +1,16 @@
 import HeaderPages from "@/components/layout/headerPages/HeaderPages";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-function index() {
+function Index() {
   const [userName, setUserName] = useState("");
   const [userNameId, setUserNameId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const router = useRouter()
+
   async function handlerFormLogin(e) {
     e.preventDefault();
     const dataForm = {
@@ -15,21 +19,29 @@ function index() {
       email,
       password,
     };
+
     try {
-      const res = await fetch("/api/users/", {
+      const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(dataForm),
-      });
+        body: JSON.stringify(dataForm)
+      })
+      if (res.status === 201) {
+        setUserName("")
+        setUserNameId("")
+        setEmail("")
+        setPassword("")
 
-      if (res.status == 406) {
-        toast.error("Email and username have already been used.");
+        toast.success("The user was successfully registered.")
+
+
+        router.replace("/")
       }
 
-      if (res.status == 201) {
-        toast.success("Your registration was successful.");
+      if (res.status === 422) {
+        toast.error("Filling in all fields is mandatory.")
       }
     } catch (err) {
       console.log(err);
@@ -59,7 +71,6 @@ function index() {
                         type="text"
                         className="form-control bg-transparent p-3 text-white"
                         placeholder="Name"
-                        required
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                       />
@@ -69,7 +80,6 @@ function index() {
                         type="text"
                         className="form-control bg-transparent p-3 text-white"
                         placeholder="User Id"
-                        required
                         value={userNameId}
                         onChange={(e) => setUserNameId(e.target.value)}
                       />
@@ -79,7 +89,6 @@ function index() {
                         type="email"
                         className="form-control bg-transparent p-3 text-white"
                         placeholder="Email"
-                        required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
@@ -89,7 +98,6 @@ function index() {
                         type="password"
                         className="form-control bg-transparent p-3 text-white"
                         placeholder="Password"
-                        required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
@@ -114,4 +122,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

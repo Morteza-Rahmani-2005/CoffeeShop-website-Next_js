@@ -1,19 +1,10 @@
 import Link from "next/link";
-import { useCurrentAdmin } from "../lib/store";
 import styles from "./Topbar.module.css";
 import { BiBell, BiMenu, BiSearch } from "react-icons/bi";
 
+const adminInitials = "AR";
+
 export default function Topbar({ title, subtitle, onOpenMenu }) {
-  const admin = useCurrentAdmin();
-  const adminInitials = admin
-    ? admin.name
-        .split(" ")
-        .filter(Boolean)
-        .slice(0, 2)
-        .map((w) => w[0])
-        .join("")
-        .toUpperCase()
-    : "?";
 
   return (
     <div className={styles.topbar}>

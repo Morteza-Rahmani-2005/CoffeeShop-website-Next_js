@@ -18,6 +18,10 @@ const schema = mongoose.Schema({
     required: true,
     minLength: 8,
   },
+  role: {
+    type: String,
+    required: true
+  }
 });
 
 const model = mongoose.models.User || mongoose.model("User", schema);

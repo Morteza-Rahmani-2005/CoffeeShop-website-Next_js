@@ -33,6 +33,11 @@ const productSchema = mongoose.Schema(
             type: Boolean,
             default: true,
         },
+        image: {
+            type: String,
+            required: true,
+
+        },
 
         sold: {
             type: Number,

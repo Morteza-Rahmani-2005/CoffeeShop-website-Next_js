@@ -1,36 +1,51 @@
 import Head from "next/head";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import toast from "react-hot-toast";
 import Layout from "@/components_dashboard/Layout";
 import StatCard from "@/components_dashboard/StatCard";
-import BrewGauge from "@/components_dashboard/BrewGauge";
 import Panel from "@/components_dashboard/ui/Panel";
-import StatusBadge from "@/components_dashboard/ui/StatusBadge";
-import DataTable from "@/components_dashboard/ui/DataTable";
-import { useStore } from "@/lib/store";
 import styles from "@/pages/panel-dashboard/dashboard/index.module.css";
-import { BsCalendarCheck, BsCupHotFill, BsWallet2 } from "react-icons/bs";
+import { BsCalendarCheck } from "react-icons/bs";
 import { BiCube } from "react-icons/bi";
 
-const STATUS_LABEL = {
-  ready: "Ready",
-  brewing: "Brewing",
-  pending: "Pending",
-  canceled: "Canceled",
-};
+const reservations = [
+  { id: "r1", table: "4", name: "The Rostami Family", time: "18:30", guests: 4 },
+  { id: "r2", table: "7", name: "Nora Abbasi", time: "19:00", guests: 2 },
+  { id: "r3", table: "2", name: "College Friends Group", time: "19:45", guests: 6 },
+  { id: "r4", table: "11", name: "Behrad Nouri", time: "20:15", guests: 2 },
+];
 
-export default function index() {
-  const siteName = useStore((s) => s.content.siteName);
-  const orders = useStore((s) => s.orders);
-  const reservations = useStore((s) => s.reservations);
-  const products = useStore((s) => s.products);
+export default function Index() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
 
-  const revenueToday = useMemo(
-    () =>
-      orders
-        .filter((o) => o.status !== "canceled")
-        .reduce((sum, o) => sum + Number(o.price || 0), 0),
-    [orders],
-  );
+        const response = await fetch("/api/products");
+
+
+
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const data = await response.json();
+
+
+        setProducts(data.products);
+      } catch (error) {
+        console.error(error);
+        toast.error("Failed to load products.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const popularProducts = useMemo(
     () =>
@@ -38,29 +53,7 @@ export default function index() {
     [products],
   );
 
-  const goalTarget = 180;
-  const goalPercent = Math.min(
-    100,
-    Math.round((orders.length / goalTarget) * 100),
-  );
-
   const stats = [
-    {
-      icon: <BsCupHotFill />,
-      tone: "accent",
-      label: "Orders today",
-      value: orders.length,
-      delta: "8.2%",
-      direction: "up",
-    },
-    {
-      icon: <BsWallet2 />,
-      tone: "positive",
-      label: "Revenue today",
-      value: `$${revenueToday.toFixed(2)}`,
-      delta: "12.4%",
-      direction: "up",
-    },
     {
       icon: <BsCalendarCheck />,
       tone: "info",
@@ -82,7 +75,7 @@ export default function index() {
   return (
     <>
       <Head>
-        <title>Dashboard | {siteName}</title>
+        <title>Dashboard</title>
       </Head>
       <Layout title="Dashboard" subtitle="Today's snapshot of your coffee shop">
         <div className={styles.greeting}>
@@ -94,7 +87,7 @@ export default function index() {
 
         <div className="row g-3 mb-4">
           {stats.map((s) => (
-            <div className="col-6 col-lg-3" key={s.label}>
+            <div className="col-12 col-md-6" key={s.label}>
               <StatCard {...s} />
             </div>
           ))}
@@ -102,67 +95,6 @@ export default function index() {
 
         <div className="row g-3">
           <div className="col-12 col-xl-8">
-            <Panel className={styles.tablePanel}>
-              <div className={styles.panelHead}>
-                <div>
-                  <div className={styles.sectionTitle}>Recent orders</div>
-                  <div className={styles.sectionSub}>
-                    Latest orders placed at the shop
-                  </div>
-                </div>
-                <a href="/orders" className={styles.viewAll}>
-                  View all <i className="bi bi-arrow-right ms-1" />
-                </a>
-              </div>
-
-              <DataTable>
-                <thead>
-                  <tr>
-                    <th>Order</th>
-                    <th>Customer</th>
-                    <th>Size</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {orders.slice(0, 5).map((o) => (
-                    <tr key={o.id}>
-                      <td>
-                        <div className={styles.itemCell}>
-                          <div className={styles.cupThumb}>
-                            <BsCupHotFill />
-                          </div>
-                          <div>
-                            <div className={styles.itemName}>{o.item}</div>
-                            <div className={styles.itemId}>#{o.id}</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>{o.customer}</td>
-                      <td className={styles.muted}>{o.size}</td>
-                      <td className={styles.mono}>
-                        ${Number(o.price).toFixed(2)}
-                      </td>
-                      <td>
-                        <StatusBadge
-                          status={o.status}
-                          label={STATUS_LABEL[o.status]}
-                        />
-                      </td>
-                    </tr>
-                  ))}
-                  {orders.length === 0 && (
-                    <tr>
-                      <td colSpan={5} className={styles.empty}>
-                        No orders yet.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </DataTable>
-            </Panel>
-
             <Panel>
               <div
                 className={styles.sectionTitle}
@@ -175,7 +107,7 @@ export default function index() {
                   const max = popularProducts[0]?.sold || 1;
                   const pct = Math.round(((p.sold || 0) / max) * 100);
                   return (
-                    <div key={p.id}>
+                    <div key={p._id}>
                       <div className={styles.popularRow}>
                         <span className={styles.popularName}>{p.name}</span>
                         <span className={styles.popularSold}>
@@ -198,17 +130,6 @@ export default function index() {
           </div>
 
           <div className="col-12 col-xl-4">
-            <Panel className={styles.gaugePanel}>
-              <div className={styles.sectionTitle}>Daily goal progress</div>
-              <div
-                className={styles.sectionSub}
-                style={{ marginBottom: "0.9rem" }}
-              >
-                {orders.length} of {goalTarget} target orders
-              </div>
-              <BrewGauge percent={goalPercent} label="Completed" />
-            </Panel>
-
             <Panel>
               <div className={styles.panelHeadTight}>
                 <div className={styles.sectionTitle}>

@@ -8,21 +8,7 @@ export default function index() {
 
   async function handlerFormLogin(e) {
     e.preventDefault();
-    // const dataForm = {
-    //   userNameId,
-    //   password,
-    // };
-    // try {
-    //   const res = await fetch("/api/users/", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(dataForm),
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
+
   }
 
   return (

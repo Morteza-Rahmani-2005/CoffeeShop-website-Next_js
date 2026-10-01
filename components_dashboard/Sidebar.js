@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useStore, useCurrentAdmin } from "../lib/store";
 import styles from "./Sidebar.module.css";
 import { BiBookContent, BiSolidDashboard } from "react-icons/bi";
 import { CgList } from "react-icons/cg";
@@ -32,19 +31,18 @@ const NAV_ITEMS = [
   { href: "/panel-dashboard/admins", label: "Admins", icon: <FaUserFriends /> },
 ];
 
+const siteName = "Diba Coffee House";
+const admin = { name: "Armin Rezaei", role: "Owner" };
+
 export default function Sidebar({ onNavigate }) {
   const router = useRouter();
-  const siteName = useStore((s) => s.content.siteName);
-  const admin = useCurrentAdmin();
-  const adminInitials = admin
-    ? admin.name
-        .split(" ")
-        .filter(Boolean)
-        .slice(0, 2)
-        .map((w) => w[0])
-        .join("")
-        .toUpperCase()
-    : "?";
+  const adminInitials = admin.name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
 
   return (
     <div className={styles.sidebar}>
@@ -80,8 +78,8 @@ export default function Sidebar({ onNavigate }) {
       >
         <div className={styles.avatar}>{adminInitials}</div>
         <div className={styles.userInfo}>
-          <div className={styles.userName}>{admin?.name || "…"}</div>
-          <div className={styles.userRole}>{admin?.role || ""}</div>
+          <div className={styles.userName}>{admin.name}</div>
+          <div className={styles.userRole}>{admin.role}</div>
         </div>
         <i className={`bi bi-pencil-square ${styles.userEdit}`} />
       </Link>

@@ -21,10 +21,10 @@ export default function App({ Component, pageProps }) {
           {!isDashboard && <Footer />}
           {!isDashboard && <BtnTopScroll />}
 
-          <Toaster position="top-right" />
+
         </ConfirmProvider>
         <Toaster
-          position="bottom-right"
+          position="top-right"
           toastOptions={{
             duration: 3200,
             style: {
